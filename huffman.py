@@ -42,21 +42,23 @@ def insert_list(my_list, index, value):
 
     return new_list
 
-def huffman_list(prob_list):
+def huffman_code(prob_list, bit):
 
     new_list = prob_list
     end = False
     length = len(prob_list)-1
+    code_list = []
     
     while not end:
-        print(new_list)
+        
         add_prob = new_list[-1] + new_list[-2]
-        print(add_prob)
+        print(new_list)
+        
         new_list = []
         index = []
         index_num = 0
         
-        for i in range(length):
+        for i in range(length-1):
             
             if prob_list[i] <= add_prob:
                 index.append(i)
@@ -70,15 +72,11 @@ def huffman_list(prob_list):
         if len(new_list) == 2:
             end = True
         else:
-            print(new_list)
             length -= 1
         
     return new_list
 
-def huffman_code():
-    pass
-
 prob_list = sort(a,b,c,d,e)
 
-huff = huffman_list(prob_list)
+huff = huffman_code(prob_list, a)
 print(huff)
