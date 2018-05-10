@@ -48,11 +48,20 @@ def huffman_code(prob_list, bit):
     end = False
     length = len(prob_list)-1
     code_list = []
+    track = bit
     
     while not end:
         
         add_prob = new_list[-1] + new_list[-2]
         print(new_list)
+        if track > len(new_list)-1:
+            pass
+        elif track == len(new_list) -1:
+            code_list.append(0)
+        elif track == len(new_list):
+            code_list.append(1)
+        else:
+            pass
         
         new_list = []
         index = []
@@ -68,6 +77,7 @@ def huffman_code(prob_list, bit):
             
         index_num = index[0]
         new_list = insert_list(new_list, index_num, add_prob)
+
         
         if len(new_list) == 2:
             end = True
@@ -78,5 +88,5 @@ def huffman_code(prob_list, bit):
 
 prob_list = sort(a,b,c,d,e)
 
-huff = huffman_code(prob_list, a)
+huff = huffman_code(prob_list, 0)
 print(huff)
